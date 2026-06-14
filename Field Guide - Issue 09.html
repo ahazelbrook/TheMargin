@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Guide — Issue No. 09 · 20 June 2026</title>
+  <meta name="description" content="The shortest day, spent the long way round — a gondola above the bay, a kitchen-garden lunch in Sorrento, and a six-metre fire on the foreshore for the winter solstice." />
+  <link rel="stylesheet" href="assets/colors_and_type.css" />
+  <link rel="stylesheet" href="assets/newsletter.css" />
+  <style>
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-Light.otf')        format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-Regular.otf')      format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-Italic.otf')       format('opentype'); font-weight: 400; font-style: italic;  font-display: swap; }
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-Medium.otf')       format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic;  font-display: swap; }
+    @font-face { font-family: 'Haskoy'; src: url('fonts/Haskoy-SemiBold.otf')     format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    /* ── header block: masthead + folded-in nav strip ── */
+    .masthead-block {
+      border-bottom: 1px solid var(--ink);
+      margin-bottom: 36px;
+    }
+    .masthead-block .masthead {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 14px;
+    }
+    .fg-topnav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 26px;
+      padding: 13px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .fg-topnav a,
+    .fg-topnav summary {
+      font-family: 'Haskoy', -apple-system, sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 200ms;
+      white-space: nowrap;
+    }
+    .fg-topnav a:hover,
+    .fg-topnav summary:hover { color: var(--gold-deep); }
+    .fg-topnav a.is-current { color: var(--ink); position: relative; }
+    .fg-topnav a.is-current::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -4px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+    .fg-suburbs { position: relative; }
+    .fg-suburbs summary {
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fg-suburbs summary::-webkit-details-marker { display: none; }
+    .fg-suburbs summary::after {
+      content: "";
+      width: 5px; height: 5px;
+      border-right: 1.4px solid currentColor;
+      border-bottom: 1.4px solid currentColor;
+      transform: translateY(-1px) rotate(45deg);
+      transition: transform 200ms;
+    }
+    .fg-suburbs[open] summary::after { transform: translateY(1px) rotate(225deg); }
+    .fg-suburbs-panel {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      z-index: 30;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      box-shadow: 0 14px 38px rgba(36, 32, 30, 0.10);
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px 10px;
+      min-width: 300px;
+    }
+    .fg-suburbs-panel a {
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      padding: 7px 10px;
+      border-radius: 2px;
+      transition: background 160ms, color 160ms;
+    }
+    .fg-suburbs-panel a:hover { background: var(--paper-deep); color: var(--gold-deep); }
+
+    /* ── continued first-person letter under the dek ── */
+    .hero-letter {
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--ink-soft);
+      max-width: 58ch;
+      margin: 22px 0 0;
+    }
+    .hero-letter em {
+      font-family: 'Lastik', Georgia, serif;
+      font-style: italic;
+      font-size: 1.02em;
+    }
+
+    /* ── article standfirst rendered as an italic lede ── */
+    .standfirst-italic {
+      font-family: 'Lastik', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 0 0 26px;
+      max-width: 50ch;
+    }
+
+    .article-link {
+      font-family: 'Haskoy', -apple-system, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 200ms, border-color 200ms;
+    }
+    .article-link:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+
+    /* ── "More from Field Guide" related strip ── */
+    .related {
+      margin-top: 72px;
+      padding-top: 36px;
+      border-top: 1px solid var(--ink);
+    }
+    .related-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 26px 24px 22px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 200ms, transform 200ms;
+    }
+    .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .related-card-kicker {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 600;
+    }
+    .related-card-title {
+      font-family: 'Lastik', Georgia, serif;
+      font-size: 22px;
+      line-height: 1.16;
+      letter-spacing: -0.012em;
+      color: var(--ink);
+      margin: 0;
+    }
+    .related-card-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 0;
+      flex: 1;
+    }
+    .related-card-cta {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-deep);
+      margin-top: 4px;
+    }
+    .related-card-cta::after { content: " →"; }
+
+    /* ── footer extensions ── */
+    .colophon-sub {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      max-width: 320px;
+    }
+    .colophon-sub input {
+      flex: 1;
+      min-width: 0;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      padding: 9px 11px;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 200ms;
+    }
+    .colophon-sub input:focus { border-color: var(--ink); }
+    .colophon-sub input::placeholder { color: var(--stone); }
+    .colophon-sub button {
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink);
+      padding: 9px 16px;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 200ms, border-color 200ms;
+      white-space: nowrap;
+    }
+    .colophon-sub button:hover { background: var(--gold-deep); border-color: var(--gold-deep); }
+    .colophon-subnote {
+      font-size: 11px;
+      color: var(--stone);
+      margin: 8px 0 0;
+    }
+    .subscribe-status,
+    .colophon-status {
+      min-height: 16px;
+      font-size: 12px;
+      color: var(--stone);
+    }
+    .subscribe-status { margin: 12px 0 0; }
+    .colophon-status { margin: 8px 0 0; }
+    .subscribe-status[data-state="ok"],
+    .colophon-status[data-state="ok"] { color: var(--gold-deep); }
+    .subscribe-status[data-state="error"],
+    .colophon-status[data-state="error"] { color: #B0413E; }
+    .subscribe-btn:disabled,
+    .colophon-sub button:disabled { opacity: 0.6; cursor: wait; }
+
+    @media (max-width: 880px) {
+      .masthead-block { margin-bottom: 28px; }
+      .fg-topnav {
+        gap: 20px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .fg-topnav::-webkit-scrollbar { display: none; }
+      .fg-suburbs-panel { grid-template-columns: 1fr; min-width: 220px; }
+      .related-grid { grid-template-columns: 1fr; gap: 14px; }
+      .related { margin-top: 52px; }
+      .hero-letter { font-size: 15.5px; }
+    }
+  </style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#FBF9F4">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#C49A45" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="75" cy="78" r="52"></circle>
+      <path d="M 127 78 L 127 145 Q 127 158 140 158"></path>
+    </g>
+  </svg>
+</template>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="margin-mark" viewBox="0 0 32 40">
+      <g fill="none" stroke="#C49A45" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12.5" cy="12.5" r="10"></circle>
+        <path d="M 22.5 12.5 L 22.5 33 Q 22.5 37 26.5 37"></path>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ═══ HEADER: masthead + folded-in nav ═══ -->
+  <header class="masthead-block" data-screen-label="Masthead">
+    <div class="masthead">
+      <a href="index.html" class="wordmark" aria-label="Field Guide">
+        <svg aria-hidden="true"><use href="#margin-mark"></use></svg>
+        <span class="wordmark-text"><span>Field</span><span class="wm-dot" aria-hidden="true"></span><span>Guide</span></span>
+      </a>
+      <div class="masthead-meta">
+        <span><span class="dot"></span>Issue <span class="accent">No. 09</span></span>
+        <span>20 June 2026</span>
+        <span>Inner West &middot; Melbourne</span>
+      </div>
+    </div>
+    <nav class="fg-topnav" aria-label="Field Guide">
+      <a href="index.html" class="is-current">This Weekend</a>
+      <a href="index.html">Best Parks</a>
+      <a href="index.html">Best Cafes</a>
+      <a href="index.html">Best Markets</a>
+      <details class="fg-suburbs">
+        <summary>Suburbs</summary>
+        <div class="fg-suburbs-panel">
+          <a href="index.html">Yarraville</a>
+          <a href="index.html">Seddon</a>
+          <a href="index.html">Footscray</a>
+          <a href="index.html">Williamstown</a>
+          <a href="index.html">Newport</a>
+          <a href="index.html">Spotswood</a>
+          <a href="index.html">Maribyrnong</a>
+          <a href="index.html">Altona</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <div class="stack">
+
+    <!-- ═══ THE LETTER ═══ -->
+    <section class="spread" data-screen-label="Hero">
+      <div class="content">
+        <div class="eyebrow">This week's letter · Midwinter</div>
+        <h1 class="hero-title">The shortest day of the year, <em>spent the long way round.</em></h1>
+        <p class="hero-dek">This week: a glass-cabin gondola into the cold bright air above the bay, a kitchen-garden lunch on the Sorrento strip, and a six-metre fire on the foreshore as the longest night comes down.</p>
+        <p class="hero-letter">Some weekends are for staying close to home. This is not one of them. The solstice falls on Sunday, which makes Saturday the year's last full slide into the dark — and one place down south does something proper with it. So we're giving the inner west the morning off and pointing the car toward the Peninsula for a single unhurried day that ends in fire. It's a bigger day than we usually ask of you, so we've kept it to three things and built in the gaps: up the mountain while everyone's fresh, a long lunch in a garden, then the foreshore at dusk. Warm layers, a thermos, <em>no particular hurry.</em></p>
+      </div>
+      <aside class="margin" aria-label="Issue details">
+        <div class="margin-label">This issue</div>
+        <ul class="margin-list">
+          <li><span class="k">Filed</span><span class="v">Sat, 20 June 2026</span></li>
+          <li><span class="k">Read</span><span class="v">7 minutes, slowly</span></li>
+          <li><span class="k">For</span><span class="v">Parents in the inner west</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- ═══ THE MAP ═══ -->
+    <section class="spread">
+      <figure class="figure">
+        <div class="figure-map-wrap"><svg class="fg-map-svg" viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fgmap-title fgmap-desc">
+<title id="fgmap-title">Field Guide — the Mornington Peninsula, Sorrento to Arthurs Seat</title>
+<desc id="fgmap-desc">A stylised outline of the southern Mornington Peninsula along Port Phillip Bay, from Portsea and Sorrento at the western tip east to Dromana and Arthurs Seat, with three numbered pins: the Arthurs Seat Eagle gondola, The Sisters café in Sorrento, and the Sorrento foreshore where the solstice festival is held.</desc>
+<rect x="0" y="0" width="1600" height="600" fill="#FBF9F4"></rect>
+
+<!-- Peninsula land mass (south of the bay) -->
+<path d="
+  M 80 462
+  Q 260 448 430 443
+  Q 620 437 800 425
+  Q 980 411 1120 373
+  Q 1300 331 1520 305
+  L 1520 600
+  L 80 600
+  Z
+" fill="#F0E4C8" opacity="0.55"></path>
+<!-- Coastline -->
+<path d="
+  M 80 462
+  Q 260 448 430 443
+  Q 620 437 800 425
+  Q 980 411 1120 373
+  Q 1300 331 1520 305
+" fill="none" stroke="#24201E" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.55"></path>
+
+<!-- Point Nepean Road — the drive down the peninsula -->
+<path d="M 150 492 Q 430 476 800 456 Q 1120 432 1380 392"
+      fill="none" stroke="#7A7673" stroke-width="1.3" stroke-linecap="round" opacity="0.5"></path>
+
+<!-- Arthurs Seat — contour rings rising from the coast -->
+<g fill="none" stroke="#7A7673" stroke-linecap="round" opacity="0.42">
+  <path d="M 1055 452 Q 1108 410 1162 452" stroke-width="1.2"></path>
+  <path d="M 1044 474 Q 1108 420 1174 474" stroke-width="1.2"></path>
+  <path d="M 1035 494 Q 1108 430 1182 494" stroke-width="1.2"></path>
+</g>
+<polygon points="1108,408 1101,422 1115,422" fill="#7A7673" opacity="0.6"></polygon>
+
+<!-- The free solstice shuttle — Surf Club to the Melbourne Road roundabout -->
+<path d="M 332 452 Q 372 470 426 480" fill="none" stroke="#A8842D" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 9" opacity="0.85"></path>
+
+<!-- Map title -->
+<text x="1530" y="92" text-anchor="end" font-family="'Haskoy', -apple-system, sans-serif" font-size="32" font-weight="500" letter-spacing="7" fill="#24201E">PENINSULA</text>
+<text x="1530" y="118" text-anchor="end" font-family="'Haskoy', -apple-system, sans-serif" font-size="11" font-weight="400" letter-spacing="3.2" fill="#7A7673">SORRENTO TO ARTHURS SEAT · ISSUE 09</text>
+
+<!-- Compass -->
+<g transform="translate(1496, 540)" font-family="'Haskoy', -apple-system, sans-serif" fill="#24201E" opacity="0.7">
+  <line x1="0" y1="-22" x2="0" y2="18" stroke="#24201E" stroke-width="1" opacity="0.6"></line>
+  <polygon points="0,-28 -6,-12 0,-16 6,-12" fill="#24201E" opacity="0.8"></polygon>
+  <text x="0" y="36" text-anchor="middle" letter-spacing="2" font-size="10" fill="#7A7673">N</text>
+</g>
+
+<!-- Bay label -->
+<text x="780" y="210" text-anchor="middle" font-family="'Lastik', 'Crimson Text', Georgia, serif" font-style="italic" font-size="26" fill="#7A7673" opacity="0.75" letter-spacing="1.5">Port Phillip Bay</text>
+
+<!-- Locality labels -->
+<g font-family="'Haskoy', -apple-system, sans-serif" font-size="11" font-weight="500" letter-spacing="2.4" fill="#24201E" opacity="0.78">
+  <text x="150" y="512" text-anchor="middle">PORTSEA</text>
+  <text x="404" y="536" text-anchor="middle">SORRENTO</text>
+  <text x="620" y="508" text-anchor="middle">BLAIRGOWRIE</text>
+  <text x="838" y="482" text-anchor="middle">ROSEBUD</text>
+  <text x="1066" y="352" text-anchor="middle">DROMANA</text>
+  <text x="1196" y="470" text-anchor="start">ARTHURS SEAT</text>
+</g>
+
+<!-- Small dot markers for unpinned localities -->
+<g fill="#24201E" opacity="0.55">
+  <circle cx="150" cy="498" r="2.2"></circle>
+  <circle cx="620" cy="494" r="2.2"></circle>
+  <circle cx="838" cy="468" r="2.2"></circle>
+</g>
+
+<!-- Numbered pins -->
+<g>
+  <!-- i. Arthurs Seat Eagle (the gondola) -->
+  <circle cx="1085" cy="402" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="1085" cy="402" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="1085" y="409" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="18" fill="#FBF9F4" letter-spacing="0.5">i</text>
+  <!-- ii. The Sisters (Sorrento strip) -->
+  <circle cx="456" cy="476" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="456" cy="476" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="456" y="483" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="18" fill="#FBF9F4" letter-spacing="0.5">ii</text>
+  <!-- iii. Sorrento foreshore (the festival) -->
+  <circle cx="370" cy="440" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="370" cy="440" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="370" y="447" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="16" fill="#FBF9F4" letter-spacing="0.5">iii</text>
+</g>
+</svg></div>
+        <figcaption class="figcaption">Sorrento, Arthurs Seat and the drive down — three places, plotted along the bay. <span style="color: var(--stone);">— Field Guide cartography.</span></figcaption>
+      </figure>
+    </section>
+
+    <!-- ═══ i · THE MORNING SHIFT ═══ -->
+    <section class="spread" data-screen-label="Article i">
+      <article class="content">
+        <div class="article-eyebrow">
+          <span class="article-eyebrow-num">i.</span>
+          <span>The Morning Shift</span>
+        </div>
+        <h2 class="article-title">Start the shortest day <em>as high as you can get.</em></h2>
+        <p class="standfirst-italic">A glass cabin, fifteen slow minutes over the treetops, and the whole bay laid out grey and enormous below.</p>
+        <div class="article-body">
+          <p>The Eagle is a gondola — a proper one, glass-cabined and unhurried — that lifts you from the foot of Arthurs Seat to its 314-metre summit in about fifteen minutes, the bushland dropping away and Port Phillip widening the higher you go. On a clear winter morning you can see the city one way and Geelong the other, and on most mornings there are kangaroos grazing in the scrub directly beneath the cabin, which is the kind of thing a four-year-old does not forget.</p>
+          <p>At the top there's the Eagle Café for a coffee you've earned by doing nothing, viewing decks, and the Seawinds Gardens — formal lawns, a scatter of William Ricketts sculptures, and enough room to let everyone stretch before the day proper begins. Go early: the gondola gets busier as the morning warms, and you want the mountain while the light is still doing its best work.<span class="ref">¹</span></p>
+        </div>
+
+        <aside class="callout" aria-label="While you're there">
+          <div class="callout-label">While you're there</div>
+          <ul class="callout-list">
+            <li><span class="n">a.</span><span class="v"><strong>Seawinds Gardens</strong><small>Arthurs Seat summit — free formal gardens and sculpture walks; kangaroos in the morning.</small></span></li>
+            <li><span class="n">b.</span><span class="v"><strong>Enchanted Adventure Garden</strong><small>A few minutes from the base — hedge mazes, tube slides and tree-surfing, if the kids have energy to burn.</small></span></li>
+            <li><span class="n">c.</span><span class="v"><strong>Dromana foreshore</strong><small>At the foot of the mountain — a flat, calm bay beach for a quick leg-stretch on the way through.</small></span></li>
+          </ul>
+        </aside>
+      </article>
+      <aside class="margin" aria-label="The logistics">
+        <div class="margin-label">The logistics</div>
+        <ul class="margin-list">
+          <li><span class="k">Where</span><span class="v"><strong>Base Station</strong>, Arthurs Seat Road, Dromana — a little over an hour from the inner west</span></li>
+          <li><span class="k">When</span><span class="v">Daily from mid-morning; the ride up and back is about thirty minutes, plus time at the top</span></li>
+          <li><span class="k">Best at</span><span class="v">First thing, while the gondola's quiet and the light is low</span></li>
+          <li><span class="k">Pram</span><span class="v">A folded pram travels in the cabin; the summit paths and gardens are mostly pram-friendly</span></li>
+        </ul>
+        <p class="margin-fn"><span class="margin-fn-num">¹</span><span>The gondola opened in 2016, replacing a chairlift that had carried people up the mountain since the 1960s.</span></p>
+      </aside>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- ═══ ii · THE AFTERNOON RESET ═══ -->
+    <section class="spread" data-screen-label="Article ii">
+      <article class="content">
+        <div class="article-eyebrow">
+          <span class="article-eyebrow-num">ii.</span>
+          <span>The Afternoon Reset</span>
+        </div>
+        <h2 class="article-title">Lunch in a garden, <em>on the way to the fire.</em></h2>
+        <p class="standfirst-italic">A former nursery turned kitchen-garden café on the Sorrento strip, with herb boxes for walls and a burger worth the drive on its own.</p>
+        <div class="article-body">
+          <p>The Sisters sits at the quiet end of Ocean Beach Road, a kitchen-garden café built in an old nursery, its courtyard still hemmed with garden boxes of herbs and winter veg. It is unfussy and genuinely good with children — shakes, a cabinet of home-baked cakes, room to fidget — and a proper sit-down treat for you before an afternoon on your feet. The Sisters Burger is the order. Get there on the early side of lunch, so you're fed and watered well before the foreshore fills.</p>
+        </div>
+      </article>
+      <aside class="margin" aria-label="The order">
+        <div class="margin-label">The order</div>
+        <ul class="margin-list">
+          <li><span class="k">For you</span><span class="v">The Sisters Burger — beef, cheddar, garden-herb aioli, fries</span></li>
+          <li><span class="k">For them</span><span class="v">A thickshake and something from the cabinet</span></li>
+          <li><span class="k">When</span><span class="v">Early lunch, before the festival crowd</span></li>
+          <li><span class="k">Side</span><span class="v">The lemon-zucchini muffin, if it's on</span></li>
+        </ul>
+        <p class="margin-note">The courtyard's the move on a still day, the warm room on a cold one.</p>
+      </aside>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- ═══ iii · THIS WEEK'S DISCOVERY ═══ -->
+    <section class="spread" data-screen-label="Discovery iii">
+      <article class="content discovery">
+        <svg class="discovery-mark" aria-hidden="true" viewBox="0 0 32 40"><use href="#margin-mark"></use></svg>
+        <div class="discovery-eyebrow">iii. · This week's discovery</div>
+        <h2 class="discovery-title">And then, on the longest night, <em>they set the bay alight.</em></h2>
+        <p class="discovery-body">A free foreshore festival for the winter solstice — lanterns, two stages, and a six-metre effigy that burns into the dark over the water.</p>
+        <p class="discovery-body">This is the reason for the drive. As dusk comes down on the shortest day, Sorrento's foreshore fills with lantern light, two stages of local music, food trucks and mulled wine, a silent disco, and — at half past six — Bernie: a six-metre effigy, said to be the largest in Victoria, set alight against the black water by a pyrotechnics crew while the whole town stands at the edge of the bay and watches. It is genuinely affecting, and it is free.</p>
+        <p class="discovery-body">For the children, the afternoon is the thing — a Kids Zone of lantern-making, face painting and giant bubbles, and the lantern-lit main street as the light goes. For you, once the small ones are wrangled, there's a pop-up sauna on the foreshore from Peninsula Hot Springs, mulled wine in the cold, and a silent disco if the mood takes you — the closest thing to a night out that still counts as a family day.</p>
+        <p class="discovery-body">The honest part: the burn is at half past six, which is cold, dark and well past small dinners. The family-friendly window is really the afternoon into dusk; whether you stay for Bernie is a judgement call on your particular kids, and there's no shame in watching the first flames and then driving home to a warm bath. Parking is tight — there's a free shuttle from four o'clock between the Sorrento Surf Club and the Melbourne Road roundabout, so park once and ride in.</p>
+        <a href="https://events.humanitix.com/sorrento-solstice-festival" class="discovery-link" target="_blank" rel="noopener">Register (free)</a>
+      </article>
+      <aside class="margin margin--inverse" aria-label="The details">
+        <div class="margin-label">The details</div>
+        <ul class="margin-list">
+          <li><span class="k">Where</span><span class="v"><strong>Sorrento Village &amp; Foreshore</strong>, Esplanade, Sorrento</span></li>
+          <li><span class="k">When</span><span class="v">Saturday 20 June — gates from two o'clock, Bernie burns at half past six, the site closes at nine</span></li>
+          <li><span class="k">Ages</span><span class="v">All; the Kids Zone runs through the afternoon</span></li>
+          <li><span class="k">Price</span><span class="v">Free — register online</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- ═══ A NOTE IN THE MARGIN ═══ -->
+    <section class="spread" data-screen-label="A Note">
+      <aside class="content editors-note">
+        <div class="editors-note-label">A note in the margin</div>
+        <p class="editors-note-text">We started Field Guide for the weekends that hold both of you at once — the children and the people you were before them. There's something right about marking the year's lowest point not by hiding from it but by driving an hour and a half to stand in the cold and watch a fire, together. The light comes back from here.</p>
+        <div class="editors-note-attr">— Field Guide</div>
+      </aside>
+      <aside class="margin">
+        <div class="margin-label">Up next</div>
+        <p class="margin-note">Next week the school holidays begin, and a long fortnight indoors wants a slow, warm start. We go looking for the gentlest way in.<small>Issue No. 10 · 27 June</small></p>
+      </aside>
+    </section>
+
+    <hr class="rule rule--ink" />
+
+    <!-- ═══ SUBSCRIBE ═══ -->
+    <section class="spread" data-screen-label="Subscribe">
+      <div class="content">
+        <div class="subscribe-eyebrow">Saturday mornings, in your inbox</div>
+        <h2 class="subscribe-title">One newsletter, every Saturday at seven.</h2>
+        <p class="subscribe-body">
+          No notifications, no algorithm, no list of fifty things. Just one carefully chosen weekend in Melbourne's inner west, sent quietly each Saturday before the kids wake up.
+        </p>
+        <form class="subscribe-form" data-subscribe>
+          <input type="email" name="email" placeholder="your.name@email.com" aria-label="Email address" required />
+          <button class="subscribe-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="subscribe-status" data-status aria-live="polite"></p>
+        <p class="subscribe-fineprint">Free. Unsubscribe in one click.</p>
+      </div>
+      <aside class="margin">
+        <div class="margin-label">Also from us</div>
+        <ul class="margin-list">
+          <li><span class="k">Previous</span><span class="v"><a href="index.html#archive" style="color:inherit; font-weight:500;">Read the issue before</a></span></li>
+          <li><span class="k">Archive</span><span class="v"><a href="index.html#archive" style="color:inherit; font-weight:500;">Every issue, free</a></span></li>
+          <li><span class="k">Tips</span><span class="v">tips@fieldguide.au</span></li>
+        </ul>
+      </aside>
+    </section>
+  </div>
+
+  <!-- ═══ MORE FROM FIELD GUIDE ═══ -->
+  <section class="related" data-screen-label="More from Field Guide">
+    <div class="related-eyebrow">More from Field Guide</div>
+    <div class="related-grid">
+      <a href="index.html" class="related-card">
+        <span class="related-card-kicker">The guide</span>
+        <h3 class="related-card-title">The best parks in the west</h3>
+        <p class="related-card-desc">Where to let them run, ranked and rested.</p>
+        <span class="related-card-cta">Best Parks</span>
+      </a>
+      <a href="index.html" class="related-card">
+        <span class="related-card-kicker">The guide</span>
+        <h3 class="related-card-title">The best cafes in the west</h3>
+        <p class="related-card-desc">The ones that work with a pram and still make you feel like yourself.</p>
+        <span class="related-card-cta">Best Cafes</span>
+      </a>
+      <a href="index.html" class="related-card">
+        <span class="related-card-kicker">The guide</span>
+        <h3 class="related-card-title">The best markets in the west</h3>
+        <p class="related-card-desc">Saturday mornings worth setting an alarm for.</p>
+        <span class="related-card-cta">Best Markets</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ COLOPHON / FOOTER ═══ -->
+  <footer class="colophon" data-screen-label="Footer" style="margin-top: 64px;">
+    <div>
+      <h4>About</h4>
+      <p>Field Guide is a weekly letter for parents in Melbourne's inner west. Curated, never exhaustive.</p>
+      <form class="colophon-sub" data-subscribe>
+        <input type="email" name="email" placeholder="your.name@email.com" aria-label="Email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="colophon-status" data-status aria-live="polite"></p>
+      <p class="colophon-subnote">Sent free via beehiiv, every Saturday at seven.</p>
+    </div>
+    <div>
+      <h4>Read</h4>
+      <a href="index.html">This weekend</a>
+      <a href="index.html">Best parks</a>
+      <a href="index.html">Best cafes</a>
+      <a href="index.html">Best markets</a>
+    </div>
+    <div>
+      <h4>Suburbs</h4>
+      <a href="index.html">Yarraville</a>
+      <a href="index.html">Seddon</a>
+      <a href="index.html">Footscray</a>
+      <a href="index.html">Williamstown</a>
+    </div>
+    <div>
+      <h4>&nbsp;</h4>
+      <a href="index.html">Newport</a>
+      <a href="index.html">Spotswood</a>
+      <a href="index.html">Maribyrnong</a>
+      <a href="index.html">Altona</a>
+    </div>
+    <div class="colophon-foot">
+      <a href="index.html" class="wordmark">
+        <svg aria-hidden="true"><use href="#margin-mark"></use></svg>
+        <span class="wordmark-text"><span>Field</span><span class="wm-dot" aria-hidden="true"></span><span>Guide</span></span>
+      </a>
+      <span>© 2026 &middot; Melbourne &middot; Field Guide</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('form[data-subscribe]').forEach((form) => {
+    const status = form.nextElementSibling && form.nextElementSibling.matches('[data-status]')
+      ? form.nextElementSibling : null;
+    const setStatus = (msg, state) => {
+      if (!status) return;
+      status.textContent = msg;
+      if (state) status.setAttribute('data-state', state);
+      else status.removeAttribute('data-state');
+    };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input[type="email"]');
+      const button = form.querySelector('button');
+      const email = (input.value || '').trim();
+      if (!email) return;
+      button.disabled = true;
+      setStatus('Subscribing…', null);
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) {
+          setStatus("You're in. Check your inbox to confirm.", 'ok');
+          form.reset();
+        } else {
+          setStatus(data.error || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch {
+        setStatus('Network error. Please try again.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

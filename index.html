@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Field Guide — A weekend newsletter from Melbourne's inner west</title>
   <link rel="stylesheet" href="assets/colors_and_type.css" />
-  <script src="image-slot.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
@@ -368,12 +367,23 @@
       gap: 56px;
       align-items: center;
     }
-    .latest-image image-slot {
+    .latest-image {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+    }
+    .latest-image .fg-map-svg {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
-      background: var(--paper-deep);
-      border: 1px solid var(--rule);
+      height: auto;
+      aspect-ratio: 1600 / 600;
+    }
+    .latest-cap {
+      font-family: 'Lastik', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--stone);
+      line-height: 1.5;
+      margin-top: 12px;
     }
     .latest-meta {
       display: flex;
@@ -802,7 +812,7 @@
         <div class="hero-eyebrow">A weekend newsletter from Melbourne's inner west</div>
         <h1 class="hero-title">Your weekly field guide, <em>from the inner west.</em></h1>
         <p class="hero-dek">
-          One Saturday morning, one carefully chosen weekend. A botanic garden made for slow mornings, a burger that doesn't ask you to compromise, a printmaking workshop the kids will remember. Curated, never exhaustive.
+          One Saturday morning, one carefully chosen weekend. A gondola into the cold bright air above the bay, a kitchen-garden lunch worth the drive, a six-metre solstice fire on the foreshore. Curated, never exhaustive.
         </p>
         <form class="signup" data-subscribe>
           <input type="email" name="email" placeholder="your.name@email.com" aria-label="Email address" required />
@@ -823,14 +833,14 @@
       <!-- mini issue card -->
       <aside class="hero-card" aria-label="What's in this week's issue">
         <div class="hero-card-eyebrow">In this week's issue</div>
-        <div class="hero-card-issue">Issue No. 04 · 17 May 2026</div>
-        <h3 class="hero-card-title">Quiet corners of the weekend, found in the margins.</h3>
+        <div class="hero-card-issue">Issue No. 09 · 20 June 2026</div>
+        <h3 class="hero-card-title">The shortest day of the year, spent the long way round.</h3>
         <ul class="hero-card-summary">
-          <li><span class="n">i.</span><span>Williamstown Botanic Gardens, at eight</span></li>
-          <li><span class="n">ii.</span><span>Good Good Burgers, Yarraville</span></li>
-          <li><span class="n">iii.</span><span>A printmaking workshop, Abbotsford</span></li>
+          <li><span class="n">i.</span><span>Arthurs Seat Eagle gondola, Dromana</span></li>
+          <li><span class="n">ii.</span><span>The Sisters, Sorrento</span></li>
+          <li><span class="n">iii.</span><span>Sorrento Solstice Festival, foreshore</span></li>
         </ul>
-        <a href="The Margin - Newsletter Template.html" class="hero-card-link">Read this issue</a>
+        <a href="Field Guide - Issue 09.html" class="hero-card-link">Read this issue</a>
       </aside>
     </div>
   </div>
@@ -849,26 +859,85 @@
 
     <article class="latest-card">
       <figure class="latest-image" style="margin:0;">
-        <image-slot
-          id="latest-issue-image"
-          placeholder="Drop the cover photo for this week's issue."
-          shape="rect"
-        ></image-slot>
+        <svg class="fg-map-svg" viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="latest-map-title latest-map-desc">
+<title id="latest-map-title">Field Guide — the Mornington Peninsula, Sorrento to Arthurs Seat</title>
+<desc id="latest-map-desc">A stylised outline of the southern Mornington Peninsula along Port Phillip Bay, from Portsea and Sorrento at the western tip east to Dromana and Arthurs Seat, with three numbered pins: the Arthurs Seat Eagle gondola, The Sisters café in Sorrento, and the Sorrento foreshore where the solstice festival is held.</desc>
+<rect x="0" y="0" width="1600" height="600" fill="#FBF9F4"></rect>
+<path d="
+  M 80 462
+  Q 260 448 430 443
+  Q 620 437 800 425
+  Q 980 411 1120 373
+  Q 1300 331 1520 305
+  L 1520 600
+  L 80 600
+  Z
+" fill="#F0E4C8" opacity="0.55"></path>
+<path d="
+  M 80 462
+  Q 260 448 430 443
+  Q 620 437 800 425
+  Q 980 411 1120 373
+  Q 1300 331 1520 305
+" fill="none" stroke="#24201E" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.55"></path>
+<path d="M 150 492 Q 430 476 800 456 Q 1120 432 1380 392"
+      fill="none" stroke="#7A7673" stroke-width="1.3" stroke-linecap="round" opacity="0.5"></path>
+<g fill="none" stroke="#7A7673" stroke-linecap="round" opacity="0.42">
+  <path d="M 1055 452 Q 1108 410 1162 452" stroke-width="1.2"></path>
+  <path d="M 1044 474 Q 1108 420 1174 474" stroke-width="1.2"></path>
+  <path d="M 1035 494 Q 1108 430 1182 494" stroke-width="1.2"></path>
+</g>
+<polygon points="1108,408 1101,422 1115,422" fill="#7A7673" opacity="0.6"></polygon>
+<path d="M 332 452 Q 372 470 426 480" fill="none" stroke="#A8842D" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 9" opacity="0.85"></path>
+<text x="1530" y="92" text-anchor="end" font-family="'Haskoy', -apple-system, sans-serif" font-size="32" font-weight="500" letter-spacing="7" fill="#24201E">PENINSULA</text>
+<text x="1530" y="118" text-anchor="end" font-family="'Haskoy', -apple-system, sans-serif" font-size="11" font-weight="400" letter-spacing="3.2" fill="#7A7673">SORRENTO TO ARTHURS SEAT · ISSUE 09</text>
+<g transform="translate(1496, 540)" font-family="'Haskoy', -apple-system, sans-serif" fill="#24201E" opacity="0.7">
+  <line x1="0" y1="-22" x2="0" y2="18" stroke="#24201E" stroke-width="1" opacity="0.6"></line>
+  <polygon points="0,-28 -6,-12 0,-16 6,-12" fill="#24201E" opacity="0.8"></polygon>
+  <text x="0" y="36" text-anchor="middle" letter-spacing="2" font-size="10" fill="#7A7673">N</text>
+</g>
+<text x="780" y="210" text-anchor="middle" font-family="'Lastik', 'Crimson Text', Georgia, serif" font-style="italic" font-size="26" fill="#7A7673" opacity="0.75" letter-spacing="1.5">Port Phillip Bay</text>
+<g font-family="'Haskoy', -apple-system, sans-serif" font-size="11" font-weight="500" letter-spacing="2.4" fill="#24201E" opacity="0.78">
+  <text x="150" y="512" text-anchor="middle">PORTSEA</text>
+  <text x="404" y="536" text-anchor="middle">SORRENTO</text>
+  <text x="620" y="508" text-anchor="middle">BLAIRGOWRIE</text>
+  <text x="838" y="482" text-anchor="middle">ROSEBUD</text>
+  <text x="1066" y="352" text-anchor="middle">DROMANA</text>
+  <text x="1196" y="470" text-anchor="start">ARTHURS SEAT</text>
+</g>
+<g fill="#24201E" opacity="0.55">
+  <circle cx="150" cy="498" r="2.2"></circle>
+  <circle cx="620" cy="494" r="2.2"></circle>
+  <circle cx="838" cy="468" r="2.2"></circle>
+</g>
+<g>
+  <circle cx="1085" cy="402" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="1085" cy="402" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="1085" y="409" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="18" fill="#FBF9F4" letter-spacing="0.5">i</text>
+  <circle cx="456" cy="476" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="456" cy="476" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="456" y="483" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="18" fill="#FBF9F4" letter-spacing="0.5">ii</text>
+  <circle cx="370" cy="440" r="22" fill="#FBF9F4" stroke="#FBF9F4" stroke-width="2"></circle>
+  <circle cx="370" cy="440" r="18" fill="#A8842D" stroke="#7B5F1D" stroke-width="1.4"></circle>
+  <text x="370" y="447" text-anchor="middle" font-family="'Haskoy', -apple-system, sans-serif" font-weight="600" font-size="16" fill="#FBF9F4" letter-spacing="0.5">iii</text>
+</g>
+</svg>
+        <figcaption class="latest-cap">Sorrento, Arthurs Seat &amp; the drive down · three places, plotted.</figcaption>
       </figure>
       <div>
         <div class="latest-meta">
           <span class="dot"></span>
-          <span>Issue <strong>No. 04</strong></span>
+          <span>Issue <strong>No. 09</strong></span>
           <span>·</span>
-          <span>17 May 2026</span>
+          <span>20 June 2026</span>
           <span>·</span>
-          <span>The Inner West Edit</span>
+          <span>Midwinter</span>
         </div>
-        <h3 class="latest-title">Quiet corners of the weekend, <em>found in the margins.</em></h3>
+        <h3 class="latest-title">The shortest day, <em>spent the long way round.</em></h3>
         <p class="latest-dek">
-          This week: a botanic garden made for slow mornings, a burger that doesn't ask you to compromise, and one printmaking workshop in Abbotsford that's worth the drive across the river.
+          This week: a glass-cabin gondola into the cold bright air above the bay, a kitchen-garden lunch on the Sorrento strip, and a six-metre fire on the foreshore as the longest night comes down.
         </p>
-        <a href="The Margin - Newsletter Template.html" class="latest-read">Read this issue</a>
+        <a href="Field Guide - Issue 09.html" class="latest-read">Read this issue</a>
       </div>
     </article>
   </div>
@@ -880,58 +949,118 @@
     <div class="section-head">
       <div>
         <div class="section-eyebrow">The archive</div>
-        <h2 class="section-title">Every issue we've sent. <em>Four so far.</em></h2>
+        <h2 class="section-title">Every issue we've sent.</h2>
       </div>
       <a href="#subscribe" class="section-head-link">Subscribe to read every issue →</a>
     </div>
 
     <div class="archive-grid">
-      <!-- Issue 04 (current) -->
-      <a href="The Margin - Newsletter Template.html" class="issue-card">
-        <div class="issue-tile issue-tile--oatmeal">
-          <span class="issue-tile-num">04</span>
-          <span class="issue-tile-suburb">Williamstown · Yarraville</span>
+      <!-- Issue 09 (current) -->
+      <a href="Field Guide - Issue 09.html" class="issue-card">
+        <div class="issue-tile issue-tile--gold">
+          <span class="issue-tile-num">09</span>
+          <span class="issue-tile-suburb">Sorrento · Arthurs Seat</span>
           <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
         </div>
-        <div class="issue-card-meta">17 May 2026 · This week</div>
-        <h3 class="issue-card-title">The Inner West Edit</h3>
-        <p class="issue-card-blurb">A botanic garden, a burger, and a workshop worth crossing the river for.</p>
+        <div class="issue-card-meta">20 June 2026 · This week</div>
+        <h3 class="issue-card-title">The Longest Night</h3>
+        <p class="issue-card-blurb">A gondola above the bay, a kitchen-garden lunch, and a six-metre solstice fire on the foreshore.</p>
+      </a>
+
+      <!-- Issue 08 -->
+      <a href="#" class="issue-card">
+        <div class="issue-tile issue-tile--ink">
+          <span class="issue-tile-num">08</span>
+          <span class="issue-tile-suburb">West Footscray · Williamstown</span>
+          <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
+        </div>
+        <div class="issue-card-meta">13 June 2026</div>
+        <h3 class="issue-card-title">Staying In</h3>
+        <p class="issue-card-blurb">A warm library, a Barkly Street bagel, a lit fest by the bay — and a market piled with hot donuts.</p>
+      </a>
+
+      <!-- Issue 07 -->
+      <a href="#" class="issue-card">
+        <div class="issue-tile issue-tile--oatmeal">
+          <span class="issue-tile-num">07</span>
+          <span class="issue-tile-suburb">Point Cook · the bay</span>
+          <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
+        </div>
+        <div class="issue-card-meta">6 June 2026</div>
+        <h3 class="issue-card-title">The Long Way Round</h3>
+        <p class="issue-card-blurb">The airfield where Australia learned to fly, a far-west kitchen, and a Pasifika block party.</p>
+      </a>
+
+      <!-- Issue 06 -->
+      <a href="#" class="issue-card">
+        <div class="issue-tile issue-tile--ink">
+          <span class="issue-tile-num">06</span>
+          <span class="issue-tile-suburb">Maribyrnong · Seddon</span>
+          <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
+        </div>
+        <div class="issue-card-meta">30 May 2026</div>
+        <h3 class="issue-card-title">Winter Opens</h3>
+        <p class="issue-card-blurb">A riverside playground in Maribyrnong, a new café in Seddon, and RISING's opening weekend.</p>
+      </a>
+
+      <!-- Issue 05 -->
+      <a href="#" class="issue-card">
+        <div class="issue-tile issue-tile--oatmeal">
+          <span class="issue-tile-num">05</span>
+          <span class="issue-tile-suburb">Altona · Carlton</span>
+          <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
+        </div>
+        <div class="issue-card-meta">23 May 2026</div>
+        <h3 class="issue-card-title">The Last of Autumn</h3>
+        <p class="issue-card-blurb">A former swamp the birds repossessed, a seaside café, and a design market under the dome.</p>
+      </a>
+
+      <!-- Issue 04 -->
+      <a href="#" class="issue-card">
+        <div class="issue-tile issue-tile--gold">
+          <span class="issue-tile-num">04</span>
+          <span class="issue-tile-suburb">Spotswood · Melbourne</span>
+          <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
+        </div>
+        <div class="issue-card-meta">9 May 2026</div>
+        <h3 class="issue-card-title">A Moon in the Museum</h3>
+        <p class="issue-card-blurb">Scienceworks for Mother's Day, a Spotswood breakfast worth booking, and a run around the Tan.</p>
       </a>
 
       <!-- Issue 03 -->
       <a href="#" class="issue-card">
-        <div class="issue-tile issue-tile--ink">
+        <div class="issue-tile issue-tile--paper">
           <span class="issue-tile-num">03</span>
-          <span class="issue-tile-suburb">Abbotsford · Collingwood</span>
+          <span class="issue-tile-suburb">Newport · Yarraville</span>
           <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
         </div>
-        <div class="issue-card-meta">10 May 2026</div>
-        <h3 class="issue-card-title">The Yarra Loop</h3>
-        <p class="issue-card-blurb">A river walk that ends with a flat white, and where to take the children when it rains.</p>
+        <div class="issue-card-meta">2 May 2026</div>
+        <h3 class="issue-card-title">The Forest in Newport</h3>
+        <p class="issue-card-blurb">A reclaimed quarry that feels like the country, a Yarraville corner café, and forty-two photographs.</p>
       </a>
 
       <!-- Issue 02 -->
       <a href="#" class="issue-card">
         <div class="issue-tile issue-tile--gold">
           <span class="issue-tile-num">02</span>
-          <span class="issue-tile-suburb">Brunswick · Northcote</span>
+          <span class="issue-tile-suburb">Footscray · Yarraville</span>
           <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
         </div>
-        <div class="issue-card-meta">3 May 2026</div>
-        <h3 class="issue-card-title">North Side Mornings</h3>
-        <p class="issue-card-blurb">An oat-milk cortado, a record shop, and one bakery that opens before the sun.</p>
+        <div class="issue-card-meta">25 April 2026</div>
+        <h3 class="issue-card-title">Forty-Two Photographs</h3>
+        <p class="issue-card-blurb">A quiet ANZAC morning, a riverside park along the Maribyrnong, and a festival in the open air.</p>
       </a>
 
       <!-- Issue 01 -->
       <a href="#" class="issue-card">
-        <div class="issue-tile issue-tile--paper">
+        <div class="issue-tile issue-tile--ink">
           <span class="issue-tile-num">01</span>
-          <span class="issue-tile-suburb">Inner West</span>
+          <span class="issue-tile-suburb">Williamstown</span>
           <svg class="issue-tile-mark" aria-hidden="true"><use href="#margin-mark"></use></svg>
         </div>
-        <div class="issue-card-meta">26 April 2026 · First issue</div>
-        <h3 class="issue-card-title">The First Saturday</h3>
-        <p class="issue-card-blurb">Why we started The Margin, and the three places we keep coming back to.</p>
+        <div class="issue-card-meta">18 April 2026 · First issue</div>
+        <h3 class="issue-card-title">By the Water, Slowly</h3>
+        <p class="issue-card-blurb">A botanic garden yours at dawn, an unhurried coffee, and a craft market on the foreshore.</p>
       </a>
     </div>
   </div>
@@ -951,7 +1080,7 @@
       <div class="about-content">
         <h3>We started Field Guide because we kept being recommended things that were either for the children or for us, and almost never for both of us together.</h3>
         <p>
-          Field Guide is a weekend newsletter for parents in their mid-thirties living in Melbourne's inner west. One Saturday morning, one carefully chosen weekend — a botanic garden made for slow mornings, a workshop the kids will remember, a coffee good enough to justify the queue.
+          Field Guide is a weekend newsletter for parents living in Melbourne's inner west. One Saturday morning, one carefully chosen weekend — a botanic garden made for slow mornings, a workshop the kids will remember, a coffee good enough to justify the queue.
         </p>
         <p>
           We don't list fifty things. We list the few that actually worked. Curated, never exhaustive — the small, honest list of things worth keeping.
@@ -1003,12 +1132,12 @@
           <span class="wordmark-text"><span>Field</span><span class="wm-dot" aria-hidden="true"></span><span>Guide</span></span>
         </a>
         <p>
-          A weekend newsletter for parents in their mid-thirties living in Melbourne's inner west. Curated, never exhaustive.
+          A weekend newsletter for parents living in Melbourne's inner west. Curated, never exhaustive.
         </p>
       </div>
       <div>
         <h4>Read</h4>
-        <a href="#latest">This week's issue</a>
+        <a href="Field Guide - Issue 09.html">This week's issue</a>
         <a href="#archive">Archive</a>
         <a href="#about">About</a>
       </div>
